@@ -12,6 +12,7 @@ I plan to add my own changes and to build onto the base files of the original tu
 2. Flask 
 3. Jinja
 4. sqlalchemy
+5. Bootstrap / HTML
 
 ## List of Changes Implemented
 1. Home page shows total number of notes in a user's account 9/4/2021
