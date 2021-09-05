@@ -26,17 +26,14 @@
                     <a class = 'nav-item nav-link' id = 'login' href = '/login'>Login</a>
                     <a class = 'nav-item nav-link' id = 'signUp' href = '/sign-up'>Sign Up</a>
                     {% endif %}
-                    
                 </div>
+                
             </div>
-            <div class = 'collapse navbar-collapse' id = 'navbar'>
-                <div class = 'navbar-nav'>
-                    {% if user.is_authenticated %}
-                    <a class = 'nav-item' id = 'Test'>Test</a>
-                    {% endif %}
-                    
-                </div>
+            {% if user.is_authenticated %}
+            <div class = 'navbar-nav'>
+                <a class = 'nav-item nav-link' id = 'user-status' href = '/#'>{{user.first_name}} : Logged In</a>
             </div>
+            {% endif %}
         </nav>
 
         {% with messages = get_flashed_messages(with_categories=true) %}
