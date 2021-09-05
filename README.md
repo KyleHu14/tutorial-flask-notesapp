@@ -7,7 +7,7 @@ Link to Tutorial : https://www.youtube.com/watch?v=dam0GPOAvVI
 
 I plan to add my own changes and to build onto the base files of the original tutorial.
 
-## Languages / Frameworks / Tools Used In this Project
+## Languages / Frameworks / Libraries Used In this Project
 1. Python
 2. Flask 
 3. Jinja
