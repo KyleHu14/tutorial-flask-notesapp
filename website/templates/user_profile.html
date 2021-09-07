@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 class = 'display-4'>{{user.first_name}}</h1>
+<p class = 'lead'>Your Email : {{user.email}}</p>
+<p class = 'lead'>Your UserID : {{user.id}}</p>
+<p class = 'lead'>Number of Notes : {{user.notes|length}}</p>
+{% endblock %}

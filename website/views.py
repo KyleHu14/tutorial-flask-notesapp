@@ -33,3 +33,7 @@ def delete_note():
             db.session.commit()
 
     return jsonify({})
+
+@views.route('/user-profile')
+def user_profile():
+    return render_template('user_profile.html', user = current_user)

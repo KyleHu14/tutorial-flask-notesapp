@@ -31,7 +31,7 @@
             </div>
             {% if user.is_authenticated %}
             <div class = 'navbar-nav'>
-                <a class = 'nav-item nav-link' id = 'user-status' href = '/#'>{{user.first_name}} : Logged In</a>
+                <a class = 'nav-item nav-link' id = 'user-status' href = '/user-profile'>Welcome {{user.first_name}}!</a>
             </div>
             {% endif %}
         </nav>
