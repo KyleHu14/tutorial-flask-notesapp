@@ -34,6 +34,6 @@ def delete_note():
 
     return jsonify({})
 
-@views.route('/user-profile')
+@views.route('/user-profile', methods = ['POST'])
 def user_profile():
     return render_template('user_profile.html', user = current_user)

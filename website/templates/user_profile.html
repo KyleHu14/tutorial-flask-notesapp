@@ -4,4 +4,42 @@
 <p class = 'lead'>Your Email : {{user.email}}</p>
 <p class = 'lead'>Your UserID : {{user.id}}</p>
 <p class = 'lead'>Number of Notes : {{user.notes|length}}</p>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+  Change User Information
+</button>
+
+<!-- Modal -->
+<form method = 'POST'>
+    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Change your Information</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Change your First Name</label>
+                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter new first name">
+                </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Change your Email Address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter new email">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Change your Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter new password">
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Save changes</button>
+        </div>
+        </div>
+    </div>
+    </div>
+</form>
 {% endblock %}
