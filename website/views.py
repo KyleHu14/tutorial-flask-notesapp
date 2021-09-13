@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template, request, flash, jsonify
 from flask_login import login_required, current_user
-from .models import Note
+from werkzeug.security import generate_password_hash
+from .models import Note, User
 import json
 from . import db
 
@@ -40,10 +41,11 @@ def user_profile():
         newEmail = request.form.get('newEmail')
         newName = request.form.get('newName')
         newPassword = request.form.get('newPassword')
-
-        print('Post Request Received : ')
-        print(newEmail)
-        print(newName)
-        print(newPassword)
+        user = User.query.filter_by(email = current_user.email).one()
+        user.email = newEmail 
+        user.first_name = newName
+        user.password = newPassword
+        db.session.commit()
+        print('User has been changed!')
         
     return render_template('user_profile.html', user = current_user)
