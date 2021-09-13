@@ -34,6 +34,16 @@ def delete_note():
 
     return jsonify({})
 
-@views.route('/user-profile', methods = ['POST'])
+@views.route('/user-profile', methods = ['GET', 'POST'])
 def user_profile():
+    if request.method == 'POST':
+        newEmail = request.form.get('newEmail')
+        newName = request.form.get('newName')
+        newPassword = request.form.get('newPassword')
+
+        print('Post Request Received : ')
+        print(newEmail)
+        print(newName)
+        print(newPassword)
+        
     return render_template('user_profile.html', user = current_user)
