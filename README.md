@@ -20,6 +20,4 @@ I plan to add my own changes and to build onto the base files of the original tu
 3. Shows login status and user name at the right most side of navbar [Implemented on 9/5/2021 ]
 4. Add a user profile page [Implemented on 9/7/2021 ]
 5. Add a public notes page on profile 
-6. Store profile images / profile pictures
-7. Implement logout button into the profile button on navbar 
-8. Allow the user to change his/her information [Implemented on 9/12/2021 ]
+6. Allow the user to change his/her information [Implemented on 9/12/2021 ]
