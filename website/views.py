@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, request, flash, jsonify
 from flask_login import login_required, current_user
 from werkzeug.security import generate_password_hash
-from .models import Note, User
+from .models import PrivateNote, User
 import json
 from . import db
 
@@ -18,7 +18,7 @@ def home():
         if len(note) < 1:
             flash('Note is too short!', category = 'error')
         else:
-            new_note = Note(note_content = note, user_id = current_user.id)
+            new_note = PrivateNote(note_content = note, user_id = current_user.id)
             db.session.add(new_note)
             db.session.commit()
             flash('Note added!', category = 'success')
@@ -29,7 +29,7 @@ def home():
 def delete_note():
     note = json.loads(request.data)
     noteId = note['noteId']
-    note = Note.query.get(noteId)
+    note = PrivateNote.query.get(noteId)
     if note:
         if note.user_id == current_user.id:
             db.session.delete(note)

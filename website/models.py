@@ -3,7 +3,7 @@ from flask_login import UserMixin
 from sqlalchemy.sql import func 
 
 # All notes and users need to look like this
-class Note(db.Model):
+class PrivateNote(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     note_content = db.Column(db.String(10000))
     date = db.Column(db.DateTime(timezone = True), default = func.now()) # func gets the current date and time 
@@ -18,4 +18,4 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(150), unique=True) # Max email length is 150, users cannot create same emails 
     password = db.Column(db.String(150))
     first_name = db.Column(db.String(150))
-    notes = db.relationship('Note') # A list and stores all the notes
+    notes = db.relationship('PrivateNote') # A list and stores all the notes
