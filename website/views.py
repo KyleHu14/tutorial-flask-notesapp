@@ -42,10 +42,16 @@ def user_profile():
         newName = request.form.get('newName')
         newPassword = request.form.get('newPassword')
         user = User.query.filter_by(email = current_user.email).one()
-        user.email = newEmail 
-        user.first_name = newName
-        user.password = newPassword
+        check_user = User.query.filter_by(email= newEmail).first()
+        
+        if check_user:
+            flash('Email already exists.', category = 'error')
+        elif newEmail != '' and '@' in newEmail and '.com' in newEmail:
+            user.email = newEmail 
+        if newName != '':
+            user.first_name = newName
+        if newPassword != '' and len(newPassword) > 7:
+            user.password = newPassword
         db.session.commit()
-        print('User has been changed!')
         
     return render_template('user_profile.html', user = current_user)
