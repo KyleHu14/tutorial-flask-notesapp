@@ -18,4 +18,4 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(150), unique=True) # Max email length is 150, users cannot create same emails 
     password = db.Column(db.String(150))
     first_name = db.Column(db.String(150))
-    notes = db.relationship('PrivateNote') # A list and stores all the notes
+    private_notes = db.relationship('PrivateNote') # A list and stores all the notes

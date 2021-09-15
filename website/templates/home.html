@@ -3,9 +3,9 @@
 {% block title %}Home{% endblock %}
 {% block content %}
 <h1 align = 'center'>Private Notes</h1>
-<h2 align = 'center'>Number of Notes : {{user.notes|length}} </h2>
+<h2 align = 'center'>Number of Private Notes : {{user.private_notes|length}} </h2>
 <ul class = 'list-group list-group-flush' id = 'notes'>
-    {% for note in user.notes %}
+    {% for note in user.private_notes %}
     <li class = 'list-group-item'>
         Date Added : {{note.date.strftime('%m/%d/%Y')}}<br>
         {{ note.note_content }}
