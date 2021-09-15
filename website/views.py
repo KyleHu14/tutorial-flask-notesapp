@@ -7,9 +7,11 @@ from . import db
 
 views = Blueprint('views', __name__)
 
+# This serves as a method that is called whenever a user enters the home page
 @views.route('/', methods = ['GET', 'POST'])
 @login_required
 def home():
+    # If request is a post method, it means that the user has submitted a note
     if request.method == 'POST':
         note = request.form.get('note')
 
@@ -35,17 +37,21 @@ def delete_note():
 
     return jsonify({})
 
+# This is the page where users are able to change their profile details
 @views.route('/user-profile', methods = ['GET', 'POST'])
 def user_profile():
+    # If a POST request has been received that means that a user has submitted information that needs to be changed
     if request.method == 'POST':
+        # The new variables are what the user has sent
         newEmail = request.form.get('newEmail')
         newName = request.form.get('newName')
         newPassword = request.form.get('newPassword')
         user = User.query.filter_by(email = current_user.email).one()
         check_user = User.query.filter_by(email= newEmail).first()
         
+        # Checks if the user's inputted information is correct
         if check_user:
-            flash('Email already exists.', category = 'error')
+            flash('Email already exists. Other information has been changed.', category = 'error')
         elif newEmail != '' and '@' in newEmail and '.com' in newEmail:
             user.email = newEmail 
         if newName != '':
