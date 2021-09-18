@@ -16,6 +16,6 @@ class PrivateNote(db.Model):
 class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key = True)
     email = db.Column(db.String(150), unique=True) # Max email length is 150, users cannot create same emails 
-    password = db.Column(db.String(150))
+    password_hash = db.Column(db.String(150))
     first_name = db.Column(db.String(150))
     private_notes = db.relationship('PrivateNote') # A list and stores all the notes

@@ -47,7 +47,7 @@ def user_profile():
         newName = request.form.get('newName')
         newPassword = request.form.get('newPassword')
         user = User.query.filter_by(email = current_user.email).one()
-        check_user = User.query.filter_by(email= newEmail).first()
+        check_user = User.query.filter_by(email = newEmail).first()
         
         # Checks if the user's inputted information is correct
         if check_user:
@@ -57,7 +57,7 @@ def user_profile():
         if newName != '':
             user.first_name = newName
         if newPassword != '' and len(newPassword) > 7:
-            user.password = newPassword
+            user.password_hash = generate_password_hash(newPassword, method = 'sha256')
         db.session.commit()
         
     return render_template('user_profile.html', user = current_user)
