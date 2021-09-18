@@ -61,3 +61,8 @@ def user_profile():
         db.session.commit()
         
     return render_template('user_profile.html', user = current_user)
+
+
+@views.route('/friends', methods = ['GET', 'POST'])
+def friends():
+    return render_template('friends.html', user = current_user)
