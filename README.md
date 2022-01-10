@@ -1,7 +1,7 @@
 # python-web-tutorial
 
 ## Introduction
-The main foundation of this project was written by following a tutorial from Youtube. 
+This repository was made with the help of a tutorial. I followed the tutorial and created this repository.
 
 Link to Tutorial : https://www.youtube.com/watch?v=dam0GPOAvVI
 
